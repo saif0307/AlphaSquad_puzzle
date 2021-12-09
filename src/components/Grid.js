@@ -90,6 +90,7 @@ const Grid = ({ size, gameCompleted }) => {
 						document.querySelectorAll(`.main-grid > div`).forEach((e) => {
 							document.body.classList.remove("opacity-50");
 							e.classList.remove("bg-red-300");
+							e.classList.remove("border-green-400");
 							e.classList.add("bg-blue-400");
 						});
 					}}
@@ -98,11 +99,12 @@ const Grid = ({ size, gameCompleted }) => {
 						event.target.classList.add("starter");
 						document.querySelectorAll(`.dropzones`).forEach((e) => {
 							e.classList.add("bg-red-300");
+							e.classList.add("border-green-400");
 							e.classList.remove("bg-blue-400");
 						});
 						document.body.classList.add("opacity-50");
 					}}
-					className={`dropzones rounded-lg bg-blue-400 cursor-move shadow-2xl z-40 relative h-32 w-32   flex flex-col justify-evenly text-center mt-50px text-white align-middle`}
+					className={`dropzones rounded-lg bg-blue-400  hover:bg-blue-300 border-4 hover:border-red-400 cursor-move shadow-2xl z-40 relative h-32 w-32   flex flex-col justify-evenly text-center mt-50px text-white align-middle`}
 					key={e.id}
 				>
 					<p className="align-middle z-0 relative inline font-semibold text-4xl oldstyle-nums">
@@ -116,7 +118,7 @@ const Grid = ({ size, gameCompleted }) => {
 	return (
 		<div
 			style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}
-			className={`main-grid grid rounded-xl grid-cols-${size} grid-rows-${size} shadow-4xl border-red-400 border-8 justify-items-center gap-6 w-3/4 mx-auto p-6`}
+			className={`main-grid grid rounded-xl  grid-cols-${size} grid-rows-${size} shadow-4xl border-red-400 border-8 justify-items-center gap-6 w-3/4 mx-auto p-6`}
 		>
 			{createDivs()}
 		</div>
