@@ -105,7 +105,7 @@ const Grid = ({ size, gameCompleted }) => {
 					className={`dropzones rounded-lg bg-blue-400 cursor-move shadow-2xl z-40 relative h-32 w-32   flex flex-col justify-evenly text-center mt-50px text-white align-middle`}
 					key={e.id}
 				>
-					<p className="align-middle z-0 relative inline font-semibold text-4xl">
+					<p className="align-middle z-0 relative inline font-semibold text-4xl oldstyle-nums">
 						{e.id}
 					</p>
 				</div>
