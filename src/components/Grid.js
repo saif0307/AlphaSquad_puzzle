@@ -115,6 +115,7 @@ const Grid = ({ size, gameCompleted }) => {
 
 	return (
 		<div
+			style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}
 			className={`main-grid grid grid-cols-${size} grid-rows-${size} shadow-4xl border-red-400 border-8 justify-items-center gap-6 w-3/4 mx-auto p-6`}
 		>
 			{createDivs()}
