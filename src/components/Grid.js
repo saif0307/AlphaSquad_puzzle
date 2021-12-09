@@ -102,7 +102,7 @@ const Grid = ({ size, gameCompleted }) => {
 						});
 						document.body.classList.add("opacity-50");
 					}}
-					className={`dropzones bg-blue-400 cursor-move shadow-2xl z-40 relative h-32 w-32   flex flex-col justify-evenly text-center mt-50px text-white align-middle`}
+					className={`dropzones rounded-lg bg-blue-400 cursor-move shadow-2xl z-40 relative h-32 w-32   flex flex-col justify-evenly text-center mt-50px text-white align-middle`}
 					key={e.id}
 				>
 					<p className="align-middle z-0 relative inline font-semibold text-4xl">
@@ -116,7 +116,7 @@ const Grid = ({ size, gameCompleted }) => {
 	return (
 		<div
 			style={{ gridTemplateColumns: `repeat(${size}, 1fr)` }}
-			className={`main-grid grid grid-cols-${size} grid-rows-${size} shadow-4xl border-red-400 border-8 justify-items-center gap-6 w-3/4 mx-auto p-6`}
+			className={`main-grid grid rounded-xl grid-cols-${size} grid-rows-${size} shadow-4xl border-red-400 border-8 justify-items-center gap-6 w-3/4 mx-auto p-6`}
 		>
 			{createDivs()}
 		</div>

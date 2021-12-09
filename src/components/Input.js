@@ -19,14 +19,14 @@ const Input = ({ onFormSubmit }) => {
 				</label>
 				<input
 					placeholder="Enter Puzzle Size"
-					className="input-1 border border-red-500 outline-none h-12 w-80 p-1 shadow-xl rounded-sm"
+					className="input-1 border border-red-500 outline-none h-12 w-80 p-1 shadow-xl rounded-lg"
 					value={inputValue}
 					type="number"
 					min={2}
 					max={6}
 					onChange={onValueChange}
 				/>
-				<button className="bg-red-400 box-border shadow-xl rounded-sm text-white font-semibold hover:bg-red-300 ml-1.5 w-24 h-12 p-1">
+				<button className="bg-red-400 box-border shadow-xl rounded-lg text-white font-semibold hover:bg-red-300 ml-1.5 w-24 h-12 p-1">
 					Create!
 				</button>
 			</form>
