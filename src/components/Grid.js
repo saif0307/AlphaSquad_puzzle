@@ -4,6 +4,7 @@ const Grid = ({ size, gameCompleted }) => {
 	const [boxes, setBoxes] = useState([]);
 	const [starterBox, setStarterBox] = useState({});
 	const [completed, setCompleted] = useState(false);
+	const [tempSize, setTempSize] = useState("");
 	let boxes_arr = [];
 
 	// Store Boxes in localStorage

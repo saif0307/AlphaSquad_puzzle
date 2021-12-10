@@ -10,6 +10,7 @@ const Input = ({ onFormSubmit }) => {
 		<div className="p-3 w-full flex justify-center items-center ">
 			<form
 				onSubmit={(e) => {
+					localStorage.clear();
 					onFormSubmit(e);
 					setInputValue("");
 				}}
