@@ -6,6 +6,16 @@ const Grid = ({ size, gameCompleted }) => {
 	const [completed, setCompleted] = useState(false);
 	let boxes_arr = [];
 
+	// Store Boxes in localStorage
+	const storeBoxes = (localBoxes) => {
+		localStorage.setItem("boxes", JSON.stringify(localBoxes));
+	};
+
+	// Get Boxes from localStorage
+	const getBoxes = () => {
+		return JSON.parse(localStorage.getItem("boxes"));
+	};
+
 	// Funtion to Shuffle The items using math.random
 	const shuffle = (array) => {
 		let new_arr = [];
@@ -15,11 +25,17 @@ const Grid = ({ size, gameCompleted }) => {
 				new_arr.push(random_item);
 			}
 		}
+		storeBoxes(new_arr);
 		return new_arr;
 	};
 	// calls Shuffle the initial value of the boxes which are linear
 	useEffect(() => {
-		setBoxes([...shuffle(boxes_arr)]);
+		const localBoxes = getBoxes();
+		if (localBoxes && localBoxes.length > 0) {
+			setBoxes(localBoxes);
+		} else {
+			setBoxes([...shuffle(boxes_arr)]);
+		}
 	}, [size]);
 
 	if (!size) {
@@ -41,9 +57,9 @@ const Grid = ({ size, gameCompleted }) => {
 			});
 
 			if (compLoop) {
+				storeBoxes([]);
 				setCompleted(compLoop);
 				gameCompleted(completed);
-				console.log("welcome to the team");
 			}
 		};
 
@@ -65,6 +81,7 @@ const Grid = ({ size, gameCompleted }) => {
 			swapArrayElements(boxes_new, fromBoxIndex, toBoxIndex);
 			setBoxes([...boxes_new]);
 			// Check boxes
+			storeBoxes(boxes_new);
 			checkCompleted();
 		};
 		// const swapBoxes = (start, drop) => {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import Input from "./Input";
 import Grid from "./Grid";
@@ -12,18 +12,33 @@ const App = () => {
 		document.querySelector(".modal").classList.remove("flex");
 		document.querySelector(".modal").classList.add("hidden");
 		setModalState(false);
+		setSizeToLocalStorage(0);
 		setSize(0);
 	};
+	const setSizeToLocalStorage = (size) => {
+		localStorage.setItem("size", JSON.stringify(size));
+	};
+
+	const getSizeFromLocalStorage = () => {
+		return JSON.parse(localStorage.getItem("size"));
+	};
+
+	useEffect(() => {
+		const localSize = getSizeFromLocalStorage();
+		if (!localSize) return;
+		setSize(localSize);
+	});
 
 	const onFormSubmit = (e) => {
 		e.preventDefault();
+		setSizeToLocalStorage(e.target[0].value);
 		setSize(e.target[0].value);
 	};
 
 	const getGrid = () => {
-		if (!size) {
-			return null;
-		}
+		// if (!size) {
+		// 	return null;
+		// }
 		return (
 			<Grid
 				size={size}

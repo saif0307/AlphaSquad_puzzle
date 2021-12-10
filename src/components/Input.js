@@ -19,7 +19,7 @@ const Input = ({ onFormSubmit }) => {
 				</label>
 				<input
 					placeholder="Enter Puzzle Size"
-					className="input-1 border border-red-500 outline-none h-12 w-80 p-1 shadow-xl rounded-lg"
+					className="input-1  border border-red-500 outline-none h-12 w-80 p-4 shadow-xl rounded-lg"
 					value={inputValue}
 					type="number"
 					min={2}
